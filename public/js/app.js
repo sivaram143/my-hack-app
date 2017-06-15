@@ -25,7 +25,17 @@ myApp.config(function($routeProvider) {
   when('/sr', {
     templateUrl: 'partials/sr.html'
   }).
+  when('/blank', {
+    templateUrl: 'partials/blank.html'
+  }).
   otherwise({
     redirectTo: '/home',
   });
+});
+
+myApp.controller('myCtrl', function($scope, $window, $location) {
+  console.log("controller called");
+  $scope.redirect = function() {
+    $location.path('blank');
+  };
 });
