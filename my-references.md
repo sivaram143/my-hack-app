@@ -5,3 +5,8 @@
 - https://claudiajs.com/tutorials/hello-world-chatbot.html
 - https://www.sitepoint.com/building-facebook-chat-bot-node-heroku/
 - https://codingislove.com/build-facebook-chat-bot-javascript/
+- https://blog.powerupcloud.com/creating-a-simple-aws-lex-bot-1be7c438c725
+
+- https://github.com/awslabs/aws-lex-browser-audio-capture [imp]
+
+- https://github.com/vasilevach/Web-App-with-Amazon-AWS-Lex
