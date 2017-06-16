@@ -6,7 +6,7 @@ var lexruntime = new AWS.LexRuntime({apiVersion: '2016-11-28'});
 var params = {
   botAlias: '$LATEST', /* required, has to be '$LATEST' */
   botName: 'BookConferenceRoom', /* required, the name of you bot */
-  inputText: 'Hi ', /* required, your text */
+  inputText: 'I want to book conference room', /* required, your text */
   userId: 'sivaram', /* required, arbitrary identifier */
   sessionAttributes: {
     someKey: 'testKey'

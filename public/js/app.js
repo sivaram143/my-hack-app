@@ -1,7 +1,5 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 
-
-console.log("called");
 myApp.config(function($routeProvider) {
   $routeProvider.
   when('/home', {
@@ -53,7 +51,6 @@ myApp.controller("headerController", function($scope,  $location) {
 
 
 myApp.controller('myCtrl', function($scope, $window, $location) {
-  console.log("controller called");
   $scope.redirect = function() {
     $location.path('chatbot');
   };
@@ -67,8 +64,6 @@ myApp.controller('myCtrl', function($scope, $window, $location) {
 
 myApp.factory("DataModel", function() {
   var Service = {};
-  
-  
   
   return Service;
 });
