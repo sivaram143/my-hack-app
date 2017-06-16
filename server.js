@@ -37,6 +37,11 @@ app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);
 });
 
+app.post('/test', function(req, res) {
+    console.log(req.body.desc);
+    res.end();
+});
+
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {

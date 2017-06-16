@@ -1,16 +1,17 @@
 var AWS = require('aws-sdk');
 AWS.config.update({region: 'us-east-1'});
 
-var lexruntime = new AWS.LexRuntime();
+var lexruntime = new AWS.LexRuntime({apiVersion: '2016-11-28'});
+
+console.log("lex..."+JSON.stringify(lexruntime));
 
 var params = {
   botAlias: '$LATEST', /* required, has to be '$LATEST' */
-  botName: 'BOT', /* required, the name of you bot */
-  inputText: 'TEXT', /* required, your text */
-  userId: 'USER', /* required, arbitrary identifier */
+  botName: 'ConferenceRoom', /* required, the name of you bot */
+  inputText: 'Hi ', /* required, your text */
+  userId: 'sivaram', /* required, arbitrary identifier */
   sessionAttributes: {
-    someKey: 'STRING_VALUE',
-    /* anotherKey: ... */
+    someKey: 'testKey'
   }
 };
 

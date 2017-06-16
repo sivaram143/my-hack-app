@@ -2,8 +2,11 @@
 		<div class="row chatrow">
 			<div class="col-md-3"></div>
 			<div class="col-md-6 col-sm-12 col-xs-12 scrolWell" id="scrollB">
-
-				<p><div class="alert alert-info text-center" role="alert">Welcome to Vchat</div></p>
+				<div class="alert alert-info text-center" role="alert">Welcome to Vchat</div>
+				<p ng-repeat="message in messages">
+					<div class="alert alert-info text-center" role="alert">{{message}}</div>
+				</p>
+	        </div>
 				<!-- space for msg	 -->
 			</div>
 			<div class="col-md-3"></div>
@@ -15,9 +18,9 @@
         <p class="nusr"><span id="n"></span> users now <span id="typing"></span></p>
 				<form name="msgSend" class="form-horizontal msgin">
 			        <div class="input-group col-md-12">
-			            <input id="mn" autofocus autocomplete="" type="text" class="form-control input-lg" placeholder="type in..." name="mesg">
+			            <input  autofocus autocomplete="" type="text" class="form-control input-lg" placeholder="type in..." ng-model="msg">
 			            <div class="input-group-btn">
-			                <button class="btn btn-info btn-lg pink"><i class="glyphicon glyphicon-send"></i></button>>
+			                <button class="btn btn-info btn-lg pink" ng-click="sub(msg)"><i class="glyphicon glyphicon-send"></i></button>>
 			            </div>
 			        </div>
 			    </form>

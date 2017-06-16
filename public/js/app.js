@@ -38,4 +38,20 @@ myApp.controller('myCtrl', function($scope, $window, $location) {
   $scope.redirect = function() {
     $location.path('blank');
   };
+
+  $scope.messages = [];
+  $scope.sub = function(message) {
+        console.log("message.."+message);
+        $scope.messages.push(message);
+        console.log($scope.messages);
+        $scope.msg = "";
+        console.log($scope.message);
+        // $http.post('/view1',$scope.formData).
+        // success(function(data) {
+        //     console.log("posted successfully");
+        // }).error(function(data) {
+        //     console.error("error in posting");
+        // })
+    }
 });
+
