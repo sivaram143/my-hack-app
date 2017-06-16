@@ -42,7 +42,8 @@ myApp.controller("headerController", function($scope,  $location) {
         {title: 'Webex', url:'/webex'},
         {title: 'Bridge', url:'/bridge'},
         {title: 'Learning Portal', url:'/lp'},
-        {title: 'Software Request', url:'/lms'}
+        {title: 'LMS', url:'/lms'},
+        {title: 'Software Request', url:'/sr'}
     ];
 
     $scope.isActive = function (viewLocation) { 
