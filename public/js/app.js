@@ -25,33 +25,82 @@ myApp.config(function($routeProvider) {
   when('/sr', {
     templateUrl: 'partials/sr.html'
   }).
-  when('/blank', {
-    templateUrl: 'partials/blank.html'
+  when('/chatbot', {
+    templateUrl: 'partials/chatBot.html'
   }).
   otherwise({
     redirectTo: '/home',
   });
 });
 
+myApp.controller("headerController", function($scope,  $location) {
+    $scope.menus = {};
+    $scope.menus.activeMenu = 'home';
+    $scope.menuItems = [
+        {title: 'Home', url:'/home'}, 
+        {title: 'Conference Room', url:'/cr'},
+        {title: 'Webex', url:'/webex'},
+        {title: 'Bridge', url:'/bridge'},
+        {title: 'Learning Portal', url:'/lp'},
+        {title: 'Software Request', url:'/lms'}
+    ];
+
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+});
+
+
 myApp.controller('myCtrl', function($scope, $window, $location) {
   console.log("controller called");
   $scope.redirect = function() {
-    $location.path('blank');
+    $location.path('chatbot');
   };
 
-  $scope.messages = [];
-  $scope.sub = function(message) {
-        console.log("message.."+message);
-        $scope.messages.push(message);
-        console.log($scope.messages);
-        $scope.msg = "";
-        console.log($scope.message);
-        // $http.post('/view1',$scope.formData).
-        // success(function(data) {
-        //     console.log("posted successfully");
-        // }).error(function(data) {
-        //     console.error("error in posting");
-        // })
-    }
+  $scope.close = function() {
+    $location.path('home');
+  };
+
+
 });
 
+myApp.factory("DataModel", function() {
+  var Service = {};
+  
+  
+  
+  return Service;
+});
+
+myApp.controller("ChatController", function($scope) {
+  $scope.chatMessages = [];
+  
+  $scope.formatChat = function(username,text,origDt) {
+    var chat = {};
+    chat.username = username;
+    chat.text = text;
+    chat.origDt = origDt;
+    return chat;
+  }
+  
+  $scope.addChat = function() {
+    if ($scope.newChatMsg != "") {
+      var chat = $scope.formatChat("VZ",
+                           $scope.newChatMsg,
+                           new Date());
+       
+      $scope.chatMessages.push(chat);
+      $scope.newChatMsg = "";
+    }
+    else {
+      
+    }
+  }
+  
+});
+
+myApp.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});

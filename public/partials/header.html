@@ -1,4 +1,4 @@
-  <header>
+  <header ng-controller="headerController">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-sm-4 col-xs-6">
@@ -21,13 +21,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#/home">Home</a></li>
-            <li><a href="#/cr">Conference Room</a></li>
-            <li><a href="#/webex">Webex</a></li>
-            <li><a href="#/bridge">Bridge</a></li>
-            <li><a href="#/lp">Learning Portal</a></li>
-            <li><a href="#/lms">LMS</a></li>
-            <li><a href="#/sr">Software Request</a></li>
+            <li ng-class="{active: isActive('{{ menuItem.url }}')}"
+            ng-repeat="menuItem in menuItems">
+              <a ng-href="#{{menuItem.url}}" title="{{menuItem.title}}">
+                {{menuItem.title}}</a>
+            </li>
 
           </ul>
         </div><!--/.nav-collapse -->
