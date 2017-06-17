@@ -1,12 +1,9 @@
 {
-  "name": "test-app",
+  "name": "MyChatbot-app",
   "version": "1.0.0",
-  "description": "My app description",
+  "description": "My chatbot description",
   "scripts": {
-    "start": "node server.js",
-    "test": "npm run test:server && npm run test:client",
-    "test:client": "karma start --single-run",
-    "test:server": "mocha --recursive"
+    "start": "node server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.71.0",
@@ -16,21 +13,11 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "express-validator": "^2.20.4",
-    "mongoose": "^4.4.8",
-    "morgan": "^1.7.0",
-    "nodemailer": "^2.3.0"
+    "morgan": "^1.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "karma": "^0.13.22",
-    "karma-chai": "^0.1.0",
-    "karma-coverage": "^0.5.5",
-    "karma-mocha": "^1.0.1",
-    "karma-phantomjs-launcher": "^1.0.0",
     "mocha": "^2.4.5",
-    "phantomjs-prebuilt": "^2.1.7",
-    "sinon": "^1.17.3",
-    "sinon-chai": "^2.8.0",
     "supertest": "^1.2.0"
   },
   "engines": {
