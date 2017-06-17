@@ -1,5 +1,6 @@
 var AWS = require('aws-sdk');
-AWS.config.update({region: 'us-east-1'});
+
+AWS.config.loadFromPath('./config.json');
 
 var lexruntime = new AWS.LexRuntime({apiVersion: '2016-11-28'});
 
@@ -15,10 +16,10 @@ var params = {
 
 lexruntime.postText(params, function(err, data) {
   if (err) {
-    console.log(err, err.stack); 
+    console.log(err, err.stack);
   }
   else{
-  	console.log(data);   
+  	console.log(data);
   	// successful response
-  }     
+  }
 });
