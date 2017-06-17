@@ -4,10 +4,15 @@ AWS.config.loadFromPath('./config.json');
 
 var lexruntime = new AWS.LexRuntime({apiVersion: '2016-11-28'});
 
+/* sending i/p as command line arg 
+   eg: node lexs.js "Hi, I would like to book conference room"
+*/
+var msg = process.argv[2];
+
 var params = {
   botAlias: '$LATEST', /* required, has to be '$LATEST' */
   botName: 'BookConferenceRoom', /* required, the name of you bot */
-  inputText: 'I want to book conference room', /* required, your text */
+  inputText: msg, /* required, your text */
   userId: 'sivaram', /* required, arbitrary identifier */
   sessionAttributes: {
     someKey: 'testKey'
