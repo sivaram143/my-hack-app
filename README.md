@@ -1,15 +1,33 @@
-## My App (Chat Box)
+### Chatbot Application
 
+- Welcome to MyVerizonBot
+    - Now Access --- Anytime, Anywhere
 
-### Configuration
-- **Platform:** node
-- **Framework**: express
-- **Template Engine**: 
-- **CSS Framework**: bootstrap
-- **CSS Preprocessor**: css
-- **JavaScript Framework**: angularjs
-- **Build Tool**: none
-- **Unit Testing**: mocha
-- **Database**: mongodb
-- **Authentication**: 
-- **Deployment**: none
+### Pre-requisites
+| Object | Package |
+| ------------- | -----------  |
+| *Platform* | Node      |
+| *Framework*		| Express    |
+| *CSS Framework*  | Bootstrap|
+| *JavaScript Framework* | AngularJs |
+| *Deployment*	| AWS EC2  |
+| *Unit Testing* | N/A  |
+| *Build Tool*	| N/A  |
+| *Database*	| N/A  |
+| *Authentication*	| N/A  |
+
+### To Run Application
+1. Clone the source
+   ```
+    git clone https://github.com/sivaram143/my-hack-app.git
+    git pull
+   ```
+2. install packages
+   ```
+   npm install
+   ```
+2. Run the Server
+   ```
+   npm start [Local]
+   pm2 start  pm2 start server.js [Server]
+   ```
