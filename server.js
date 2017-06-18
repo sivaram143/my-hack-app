@@ -5,12 +5,17 @@ var compression = require('compression');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-var dotenv = require('dotenv');
+// var dotenv = require('dotenv');
 //var mongoose = require('mongoose');
 
 // Load environment variables from .env file
-dotenv.load();
+// dotenv.load();
 
+var AWS = require('aws-sdk');
+
+AWS.config.loadFromPath('./config.json');
+
+var lexruntime = new AWS.LexRuntime({apiVersion: '2016-11-28'});
 
 var app = express();
 
@@ -33,13 +38,41 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.redirect('/#' + req.originalUrl);
 });
 
 app.post('/test', function(req, res) {
     console.log(req.body.desc);
     res.end();
+});
+
+app.get('/fetchMsg', function(req, res) {
+    var msg = req.query.msg;
+
+    //console.log("msg.."+msg);
+
+    var params = {
+      botAlias: '$LATEST', /* required, has to be '$LATEST' */
+      botName: 'BookConferenceRoom', /* required, the name of you bot */
+      inputText: msg, /* required, your text */
+      userId: 'sivaram', /* required, arbitrary identifier */
+      sessionAttributes: {
+        someKey: 'testKey'
+      }
+    };
+
+    lexruntime.postText(params, function(err, data) {
+      if (err) {
+        console.log(err, err.stack);
+      }
+      else{
+        //console.log(data);
+        res.json(data);
+        //res.end();
+      }
+    });
+
 });
 
 // Production error handler
