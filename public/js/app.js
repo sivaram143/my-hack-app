@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 
+
 myApp.config(function($routeProvider) {
   $routeProvider.
   when('/home', {
@@ -35,6 +36,8 @@ myApp.config(function($routeProvider) {
 });
 
 myApp.controller("headerController", function($scope,  $location) {
+    $scope.appVersion = 1.0;
+    
     $scope.menus = {};
     $scope.menus.activeMenu = 'home';
     $scope.menuItems = [
